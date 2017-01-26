@@ -27,10 +27,18 @@ In your project's Gruntfile, add a section named `swagger2soajs` to the data obj
 ```js
 grunt.initConfig({
   swagger2soajs: {
-    generate: {
-		options: {
-            'configPath': __dirname + '/config.js',
-            'swaggerPath': __dirname + '/swagger.yml'
+    build: {
+        options:{
+            op: "generate",
+            configPath: __dirname + "/config.js",
+            swaggerPath: __dirname + "/swagger.yaml"
+        }
+    },
+    rebuild: {
+        options:{
+            op: "regenerate",
+            configPath: __dirname + "/config.js",
+            swaggerPath: __dirname + "/swagger.yaml"
         }
     }
   }
@@ -38,6 +46,12 @@ grunt.initConfig({
 ```
 
 ### Options
+
+#### options.op
+Type: `String`
+Default value: N/A
+
+A string value that defines which operation should be invoked.
 
 #### options.configPath
 Type: `String`

@@ -25,6 +25,7 @@
   "dependencies": {
     "async": "2.1.4",
     "jsonschema": "1.1.1",
+    "mkdirp": "0.5.1",
     "util": "0.10.3",
     "yamljs": "0.2.8"
   }

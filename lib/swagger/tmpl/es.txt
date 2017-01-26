@@ -67,7 +67,7 @@ var lib = {
      * @param opts {Object}
      * @param cb {Function}
      */
-    "deleteIndex": function (soajs, opts, cb) {
+    "createIndex": function (soajs, opts, cb) {
         var database = lib.defaults(opts.databaseName);
         soajs.es[database].createIndex(opts.indexName, opts.mapping || null, opts.settings || null).then(function (response) {
             return cb(null, response);

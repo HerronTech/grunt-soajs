@@ -29,12 +29,18 @@ function soajs(grunt) {
 			return;
 		}
 		
+		if (!options.op || ["generate", "regenerate"].indexOf(options.op) === -1) {
+			grunt.log.error("invalid or missing operation value, refer to README.md!!");
+			done(false);
+			return;
+		}
+		
 		var directoryToUse = options.configPath.split("/");
 		directoryToUse.pop();
 		directoryToUse = directoryToUse.join("/") + "/";
 		
 		var swaggerModule = require(__dirname + "/../lib/swagger/gen");
-		swaggerModule.generate(directoryToUse, options.configPath, options.swaggerPath, function(error, response){
+		swaggerModule[options.op](directoryToUse, options.configPath, options.swaggerPath, function(error, response){
 			if(error){
 				grunt.log.error("Code: " + error.code + ", Message: " + error.msg);
 				done(false);

@@ -31,14 +31,14 @@ grunt.initConfig({
         options:{
             op: "generate",
             configPath: __dirname + "/config.js",
-            swaggerPath: __dirname + "/swagger.yaml"
+            swaggerPath: __dirname + "/swagger.yml"
         }
     },
     rebuild: {
         options:{
             op: "regenerate",
             configPath: __dirname + "/config.js",
-            swaggerPath: __dirname + "/swagger.yaml"
+            swaggerPath: __dirname + "/swagger.yml"
         }
     }
   }

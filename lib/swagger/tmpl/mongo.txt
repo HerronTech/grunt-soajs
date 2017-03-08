@@ -27,18 +27,21 @@ var lib = {
 	 * @param id {String}
 	 * @returns {*}
 	 */
-	"object_Id": function (soajs, id) {
-		var myId;
-		try {
-			myId = soajs.mongo.knowledgebase.ObjectId(id);
-			return myId;
-		}
-		catch (e) {
-			soajs.log.error(id);
-			soajs.log.error(e);
-			throw e;
-		}
-	},
+	"object_Id": function (soajs, dbName, id) {
+    		var myId;
+        try {
+            if (!dbName) {
+                dbName = database
+            }
+            myId = soajs.mongo[dbName].ObjectId(id);
+            return myId;
+        }
+        catch (e) {
+            soajs.log.error(id);
+            soajs.log.error(e);
+            throw e;
+        }
+    },
 
 	/**
 	 * function that executes find in mongo
